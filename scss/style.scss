@@ -1,0 +1,79 @@
+// Import Variables
+@use "./layout/variables" as *;
+
+// Import Global Rules to style.css
+@use "./layout/global-rules" as *;
+
+
+// Import Grouping Classes to style.css
+@use "./layout/group" as *;
+
+// Import Go Top to style.css
+@use "./layout/go-top" as *;
+
+// Import Header to style.css
+@use "./pages/header" as *;
+
+
+// Import Landing to style.css
+@use "./pages/landing" as *;
+
+
+// Import Article to style.css
+@use "./pages/article" as *;
+
+
+// Import Gallery to style.css
+@use "./pages/gallery" as *;
+
+
+// Import Features to style.css
+@use "./pages/features" as *;
+
+
+// Import Testimonials to style.css
+@use "./pages/testimonials" as *;
+
+
+// Import Team Member to style.css
+@use "./pages/team-member" as *;
+
+
+// Import Services to style.css
+@use "./pages/services" as *;
+
+
+// Import Our Skills to style.css
+@use "./pages/our-skills" as *;
+
+
+// Import HOW IT WORKS ? to style.css
+@use "./pages/work-steps" as *;
+
+
+// Import LATEST EVENTS to style.css
+@use "./pages/latest-events" as *;
+
+
+// Import PRICING PLANS to style.css
+@use "./pages/pricing-plans" as *;
+
+
+// Import TOP VIDEOS to style.css
+@use "./pages/top-videos" as *;
+
+
+// Import Our Awesome Stats to style.css
+@use "./pages/stats" as *;
+
+
+// Import Discount to style.css
+@use "./pages/discount" as *;
+
+
+// Import Footer to style.css
+@use "./pages/footer" as *;
+
+
+// Import Animation to style.css
+@use "./layout/animations.scss" as *;

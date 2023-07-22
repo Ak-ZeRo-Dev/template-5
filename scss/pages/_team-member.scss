@@ -1,0 +1,88 @@
+// Import Variables
+@use "../layout/variables" as *;
+// Import Mixins
+@use "../helpers/mixins" as *;
+
+/* Start Team Member */
+.team-member .team-cards {
+  @include grid-c (300px, 40px);
+  .tm-card {
+    position: relative;
+    z-index: 1;
+    &::before, 
+    &::after {
+      content: "";
+      background-color: #f3f3f3;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      border-radius: 10px;
+    }
+    &::before {
+      width: calc(100% - 60px);
+      z-index: -2;
+    }
+    &::after {
+      z-index: -1;
+      background-color: #e4e4e4;
+      width: 0;
+      transition: $main-transition;
+    }
+    &:hover {
+      &::after {
+        width: calc(100% - 60px);
+      }
+      .team-data > img {
+        filter: grayscale(1);
+      }
+      .tm-text > h2 {
+        color: #777;
+      }
+    }
+    .team-data {
+      display: flex;
+      align-items: center;
+      padding-top: 60px; 
+      > img {
+        width: calc(100% - 60px);
+        border-radius: 10px;
+        transition: $main-transition;
+      }
+      .social-icons {
+        width: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        > a {
+          color: #777;
+          width: 60px;
+          height: 30px;
+          @include flex;
+          transition: $main-transition;
+          &:hover {
+            color: $main-color;
+          }
+        }
+      }
+    }
+    .tm-text {
+      padding-left: 80px;
+      > {
+        h2 {
+          color: $main-color;
+          font-size: 22px;
+          margin-bottom: 0;
+          margin-top: 5px;
+          transition: $main-transition;
+        }
+        p {
+          margin-top: 10px;
+          margin-bottom: 25px;
+        }
+      }
+    }
+  }
+}
+/* End Team Member */

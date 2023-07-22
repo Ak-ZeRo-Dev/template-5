@@ -1,0 +1,52 @@
+// Import Variables
+@use "../layout/variables" as *;
+// Import Mixins
+@use "../helpers/mixins" as *;
+
+/* Start Testimonials */
+.testimonials .container .testimonial-cards {
+  @include grid-c (300px, 40px);
+  .t-card {
+    position: relative;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+    padding: 20px;
+    .t-img {
+      position: absolute;
+      top: -50px;
+      right: -10px;
+      > img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      padding: 10px;
+      z-index: 1;
+      background-color: $section-background;
+      }
+    }
+    .t-text {
+      > {
+        h3 {
+          margin: 0 0 10px;
+          display: flex;
+          flex-direction: column;
+        }
+        p:first-of-type {
+          color: #777;
+          margin-bottom: 10px;
+        }
+        .rate {
+          color: #ffc107;
+        }
+        p {
+          line-height: 1.5;
+          color: #777;
+          margin-top: 10px;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+/* End Testimonials */

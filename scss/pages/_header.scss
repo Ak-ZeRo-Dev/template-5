@@ -1,0 +1,151 @@
+// Import Variables
+@use "../layout/variables" as *;
+// Import Mixins
+@use "../helpers/mixins" as *;
+
+/* Start Header */
+.header {
+  box-shadow: 0 0 10px #ddd;
+  .container {
+    position: relative;
+    @include flex (space-between);
+    flex-wrap: wrap;
+    @include breakPoint(gsm) {
+      flex-direction: column;
+    }
+    #header-logo {
+      color: $main-color;
+      font-size: 1.5em;
+      font-weight: 600;
+      height: 70px;
+      @include flex;
+      @include breakPoint(gsm) {
+        font-size: 1.3em;
+        width: 100%;
+        height: 50px;
+        margin-bottom: -5px;
+      }
+    }
+    .main-nav {
+      display: flex;
+      > li {
+        &:last-child:hover .mega-menu {
+          top: 100%;
+          opacity: 1;
+          z-index: 1;
+        }
+        > a {
+          @include flex;
+          position: relative;
+          color: black;
+          font-size: 1.1em;
+          height: 70px;
+          padding: 0 30px;
+          overflow: hidden;
+          transition: $main-transition;
+          @include breakPoint(gsm) {
+            padding: 10px;
+            font-size: 14px;
+            height: 40px;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background-color: $main-color;
+            @include transition (left, $main-transition);
+          }
+          &:hover:before {
+            left: 0;
+          }
+          &:hover {
+            color: $main-color;
+            background-color: #fafafa;
+          }
+        }
+      }
+    }
+  }
+}
+/* Start Mega Menu */
+.header {
+  .mega-menu {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 50px);
+    padding-top: 30px;
+    background-color: white;
+    width: 100%;
+    border-bottom: 3px solid $main-color;
+    z-index: -1;
+    gap: 40px;
+    opacity: 0;
+    transition: top $main-transition, opacity $main-transition;
+    @include flex(space-evenly);
+    @include breakPoint (gsm) {
+      flex-direction: column;
+      justify-self: start;
+      gap: 0;
+      top: 100%;
+    }
+    .mega-img {
+      > img {
+        max-width: 100%;
+        padding-left: 20px;
+        padding-bottom: 20px;
+        @include breakPoint (gsm) {
+          display: none;
+        }
+      }
+    }
+    .links {
+      min-width: 250px;
+      flex: 1;
+      @include breakPoint (gsm) {
+        width: 100%;
+        flex: 0;
+        margin: 0;
+      }
+      > li {
+        &:not(:last-child) {
+          border-bottom: 2px solid #eee;
+        }
+        @include breakPoint (gsm) {
+          border-bottom: 2px solid #eee;
+        }
+        > a {
+          @include flex (start);
+          position: relative;
+          color: #2196f3;
+          padding: 15px;
+          font-size: 18px;
+          font-weight: bold;
+          overflow: hidden;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #fafafa;
+            @include transition (left, $main-transition)
+          }
+          &:hover::before {
+            left: 0;
+          }
+          .link-icons {
+            color: $main-color;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+/* End Mega Menu */
+/* End  Header */

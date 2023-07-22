@@ -1,0 +1,20 @@
+// Import Variables
+@use "./variables" as *;
+// Import Mixins
+@use "../helpers/mixins" as *;
+
+/* Start Grouping Classes*/
+.articles, .gallery, .features, .testimonials, .team-member, .services, .our-skills, .work-steps, .latest-events, .pricing-plans, .top-videos, .stats {
+  padding-top: $main-padding-top;
+  padding-bottom: $main-padding-bottom;
+  position: relative;
+}
+
+.gallery, .testimonials, .services, .work-steps, .pricing-plans, .stats {
+  background-color: $section-background;
+}
+
+.header, .articles, .team-member, .our-skills, .latest-events, .top-videos {
+  background-color: white;
+}
+/* End Grouping Classes*/

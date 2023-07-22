@@ -1,0 +1,23 @@
+// Import Variables
+@use "./variables" as *;
+// Import Mixins
+@use "../helpers/mixins" as *;
+
+/* Start Go Top button */
+#btnTop {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: $main-color;
+  color: white;
+  display: none;
+  cursor: pointer;
+  z-index: 99999;
+}
+#btnTop .go-top {
+  font-size: 1.5rem;
+  @include center;
+}
+/* End Go Top button */

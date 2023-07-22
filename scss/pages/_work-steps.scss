@@ -1,0 +1,67 @@
+// Import Variables
+@use "../layout/variables" as *;
+// Import Mixins
+@use "../helpers/mixins" as *;
+
+/* Start HOW IT WORKS ? */
+.work-steps .container .work-container {
+  @include flex (space-between);
+  @include breakPoint (gmd) {
+    flex-direction: column;
+    gap: 10px;
+  }
+  > img {
+    max-width: 100%;
+    margin-right: 100px;
+    @include breakPoint (gmd) {
+      margin-right: 0;
+    }
+  }
+  .w-steps {
+    flex: 1;
+    .step {
+      display: flex;
+      align-items: center;
+      background-color: #f6f5f5;
+      border-radius: 5px;
+      position: relative;
+      padding: 30px;
+      border: 2px solid white;
+      margin-bottom: 20px;
+      overflow: hidden;
+      z-index: 1;
+      &::before {
+        content: "";
+        @include center;
+        width: 0;
+        height: 0;
+        background-color: #ededed;
+        z-index: -1;
+        transition: $main-transition;
+      }
+      &:hover::before {
+        width: 100%;
+        height: 100%;
+      }
+      > img {
+        width: 64px;
+      }
+      .w-text {
+        padding-left: 30px;
+        > {
+          h2 {
+            margin: 0;
+            font-size: 1.5rem;
+          }
+          p {
+            color: #777;
+            line-height: 1.7;
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+          }
+        }
+      }
+    }
+  }
+}
+/* End HOW IT WORKS ? */

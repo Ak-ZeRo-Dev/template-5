@@ -1,0 +1,155 @@
+// Import Variables
+@use "../layout/variables" as *;
+// Import Mixins
+@use "../helpers/mixins" as *;
+
+/* Start Footer*/
+.footer {
+  background-color: #191919;
+  padding: 70px 0 0;
+  @include breakPoint (gsm) {
+    .footer {
+      text-align: center;
+    }
+  }
+  .f-container{
+    @include grid-c (250px, 40px);
+    .f-logo {
+      @include breakPoint (gsm) {
+        h2, p {
+          text-align: center;
+        }
+      }
+      > {
+        h2 {
+          color: white;
+          font-size: 2.5rem;
+          margin-bottom: 20px;
+          font-weight: 600;
+        }
+        ul {
+          display: flex;
+          gap: 10px;
+          @include breakPoint (gsm) {
+            justify-content: center;
+          }
+          > li {
+            &:hover {
+              &:first-child > a {
+                background-color: #1877f2;
+              }
+              &:nth-child(2) > a {
+                background-color: #1da1f2;
+              }
+              &:nth-child(3) > a {
+                background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+              }
+              &:nth-child(4) > a {
+                background-color: #0077B7;
+              }
+              &:last-child > a {
+                background-color: #000000;
+              }
+            }
+            > a {
+              @include flex;
+              background-color: #313131;
+              color: #B9B9B9;
+              font-size: 1.2rem;
+              width: 40px;
+              height: 40px;
+              transition: $main-transition;
+            }
+          }
+        }
+        p {
+          color: #b9b9b9;
+          line-height: 1.7;
+          font-size: 1rem;
+          margin-top: 20px;
+        }
+      }
+    }
+    .i-links {
+      > li {
+        padding: 15px 0;
+        transition: $main-transition;
+        @include breakPoint (gsm) {
+          display: flex;
+          justify-content: center;
+        }
+          &:not(:last-child) {
+            border-bottom: 1px solid #444;
+          }
+          &:hover {
+            padding-left: 15px;
+            & > a {
+              color: white;
+            }
+          }
+          &::before {
+            content: "\f101";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 600;
+            color: $main-color;
+            padding-right: 10px;
+            font-size: 0.7rem;
+          }
+          > a {
+            color: #b9b9b9;
+            font-size: 1rem;
+          }
+        }
+      }
+      .info {
+        > li {
+          color: #b9b9b9;
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          @include breakPoint (gsm) {
+            justify-content: center;
+            flex-direction: column;
+          }
+          .fi-icon {
+            margin: 0 10px 0 0;
+            color: $main-color;
+            @include breakPoint (gsm) {
+              margin-right: 0;
+              margin-bottom: 15px;
+            }
+          }
+          &:not(:last-child) {
+            .fi-icon {
+              font-size: 1.4rem;
+            }
+          }
+          &:last-child .fi-icon {
+            font-size: 1.2rem;
+          }
+          &:last-child  .f-phone {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
+    .f-gallery {
+      @include flex;
+      flex-wrap: wrap;
+      > img {
+        width: 78px;
+        border: 3px solid white;
+        margin: 2px;
+      }
+    }
+  }
+  .copy-right {
+    padding: 25px 0;
+    text-align: center;
+    color: white;
+    margin: 50px 0 0;
+    border-top: 1px solid #444;
+  }
+}
+/* End Footer */

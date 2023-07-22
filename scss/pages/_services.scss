@@ -1,0 +1,94 @@
+// Import Variables
+@use "../layout/variables" as *;
+// Import Mixins
+@use "../helpers/mixins" as *;
+
+/* Start Services */
+.services .container .service-cards {
+  @include grid-c (300px, 40px);
+  .s-card {
+    position: relative;
+    background-color: white;
+    box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+    counter-increment: services;
+    transition: $main-transition;
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      background-color: $main-color;
+      width: 0;
+      height: 3px;
+      transition: $main-transition;
+    }
+    &::before {
+      left: 50%;
+    }
+    &::after {
+      right: 50%;
+    }
+    &:hover {
+      transform: translateY(-10px);
+      &::before {
+        width: 100%;
+        left:0;
+      }
+      &::after {
+        width: 100%;
+        right:0;
+      }
+    }
+    .s-data {
+      @include flex;
+      flex-direction: column;
+      padding-top: 30px;
+      > {
+        .s-icon {
+          color: #d5d5d5;
+          width: 65px;
+          height: 65px;
+        }
+        h3 {
+          color: $main-color;
+          font-size: 1.6rem;
+          margin-top: 10px;
+        }
+      }
+    }
+    .s-info {
+      @include flex (space-between);
+      background-color: #f9f9f9;
+      > {
+        div {
+          width: 95px;
+          height: 50px;
+          background-color: $main-color;
+          position: relative;
+          &::before {
+            content: "0" counter(services);
+            @include center-y;
+            left: 20%;
+            font-size: 2rem;
+            font-weight: 600;
+            color: white;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -30px;
+            height: 100%;
+            width: 50%;
+            background-color: #d5d5d5;
+            transform: skewX(-30deg);
+          }
+        }
+        a {
+          color: $main-color;
+          padding-right: 20px;
+        }
+      }
+    }
+  }
+}
+/* End Services */

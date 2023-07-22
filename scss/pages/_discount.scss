@@ -1,0 +1,105 @@
+// Import Variables
+@use "../layout/variables" as *;
+// Import Mixins
+@use "../helpers/mixins" as *;
+
+/* Start Discount */
+.discount {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  @include breakPoint (gmd) {
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 2.3rem;
+    font-weight: 600;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+    @include breakPoint (gmd) {
+      margin-top: 30px;
+    }
+  }
+  .ds-info {
+    background-image: url("../../imgs/discount/discount-background1.jpg");
+    background-size: cover;
+    color: white;
+    @include flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 20px;
+    animation: change-background 10s linear infinite;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(23 135 224 / 97%);
+      z-index: -1;
+    }
+    > {
+      p {
+        line-height: 1.6;
+        font-size: 1.1rem;
+        max-width: 500px;
+      }
+      img {
+        width: 300px;
+        max-width: 100%;
+      }
+    }
+  }
+  .message {
+    background-color: white;
+    @include flex;
+    flex-basis: 50%;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+    > h1 {
+      color: black;
+    }
+    .client-msg {
+      display: flex;
+      flex-direction: column;
+      > {
+        input, #c-msg {
+          display: block;
+          background-color: #f9f9f9;
+          border: none;
+          padding: 10px;
+          margin-bottom: 25px;
+          width: 100%;
+          caret-color: $main-color;
+          border-bottom: 1px solid #ccc;
+        }
+        #c-msg {
+          resize: none;
+          height: 200px;
+        }
+        input:focus, #c-msg:focus {
+          outline: none;
+        }
+        [value="Send"] {
+          width: 100%;
+          color: white;
+          font-weight: 600;
+          border: none;
+          background-color: $main-color;
+          padding: 15px 0;
+          font-size: 1.2rem;
+          transition: $main-transition;
+          &:hover {
+            background-color: $main-color-alt;
+          }
+        }
+      }
+    }
+  }
+}
+/* End Discount */

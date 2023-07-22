@@ -1,0 +1,75 @@
+// Import Variables
+@use "../layout/variables" as *;
+
+// Import Mixins
+@use "../helpers/mixins" as *;
+
+/* Start Article */
+.articles {
+  @include breakPoint (gsm) {
+    padding-top: 50px;
+  }
+  .container {
+    .article-cards {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 40px;
+      .ar-card {
+        box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+        background-color: white;
+        border-radius: 6px;
+        overflow: hidden;
+        transition: transform $main-transition, box-shadow $main-transition, animation $main-transition;
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+        }
+        &:hover .ar-more .ar-arrow {
+          animation: moving-arrow 0.5s linear infinite;
+        }
+        > picture {
+          > img {
+            width: 100%;
+            max-width: 100%;
+          }
+        }
+        .ar-text {
+          padding-left: 20px;
+          > {
+            h3 {
+              @include breakPoint (gmd) {
+                margin-top: 10px;
+              }
+            }
+            p {
+              line-height: 1.5;
+              color: #777;
+            }
+          }
+        }
+        .ar-more {
+          @include flex (space-between);
+          border-top: 2px solid #eee;
+          height: 60px;
+          position: relative;
+          margin-top: 20px;
+          > {
+            a {
+              padding-left: 20px;
+              color: $main-color;
+              font-weight: 600;
+              font-size: 1rem;
+            }
+            .ar-arrow {
+              color: $main-color;
+              padding-right: 20px;
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* End Article */

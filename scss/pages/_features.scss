@@ -1,0 +1,146 @@
+
+// Import Variables
+@use "../layout/variables" as *;
+// Import Mixins
+@use "../helpers/mixins" as *;
+
+
+/* Start Features*/
+.features .feature-cards{
+  @include grid-c (300px, 40px)
+  }
+
+.features {
+  .feature-cards {
+    .f-card {
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+  }
+}
+
+.features .feature-cards .f-card{
+  &:hover .f-img::after {
+    border-width: 170px 500px 170px 0;
+  }
+  .f-img {
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      border-style: solid;
+      border-width: 0px 0px 170px 500px;
+      border-color: transparent transparent white transparent;
+      transition: $main-transition;
+    }
+    > img {
+      max-width: 100%;
+    }
+  }
+}
+
+.features .feature-cards .f-card .f-text > {
+  h2 {
+    position: relative;
+    font-size: 40px;
+    margin: auto;
+    width: fit-content;
+    &::after {
+      content: "";
+      @include center-x;
+      bottom: -20px;
+      width: 80%;
+      height: 5px;
+    }
+  }
+  p {
+    line-height: 2;
+    font-size: 20px;
+    margin: 30px 0;
+    padding: 25px;
+    color: #777;
+  }
+}
+
+.features .feature-cards .f-card {
+  &:hover > a::before {
+    animation: right-move-btn 0.3s linear forwards;
+  }
+  &:hover > a {
+    color: white;
+  }
+> a {
+  display: block;
+  width: fit-content;
+  position: relative;
+  border: 3px solid transparent;
+  border-radius: 6px;
+  margin: 0 auto 30px;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 10px 30px;
+  z-index: 1;
+  transition: $main-transition;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    opacity: 0;
+  }
+}}
+
+.features .feature-cards {
+  .quality {
+    .f-img::before {
+      background-color: rgb(244 64 54 / 60%);
+    }
+    .f-text > h2::after, > a::before {
+      background-color: #f44036;
+    }
+    > a {
+      color: #f44036;
+      border-color: #f44036;
+    }
+  }
+  .time {
+    .f-img::before {
+      background-color: rgb(0 150 136 / 60%);
+    }
+    .f-text > h2::after, > a::before {
+      background-color: #009688;
+    }
+    > a {
+      color: #009688;
+      border-color: #009688;
+    }
+    
+  }
+  .passion {
+    .f-img::before {
+      background-color: rgb(3 169 244 / 60%);
+    }
+    .f-text > h2::after, > a::before {
+      background-color: #03a9f4;
+    }
+    > a {
+      color: #03a9f4;
+      border-color: #03a9f4;
+    }
+  }
+}
+/* End Features */

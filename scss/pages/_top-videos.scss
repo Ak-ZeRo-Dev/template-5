@@ -1,0 +1,63 @@
+// Import Variables
+@use "../layout/variables" as *;
+// Import Mixins
+@use "../helpers/mixins" as *;
+
+
+/* Start TOP VIDEOS */
+.top-videos .videos-container{
+  display: flex;
+  @include breakPoint (gmd) {
+    flex-direction: column;
+  }
+  .v-data {
+    border: 1px solid $section-background;
+    .v-title {
+      @include flex (space-between);
+      background-color: #f4f4f4;
+      padding: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      }
+    }
+    .videos-holder {
+      > li {
+        padding: 20px;
+        border-top: 1px solid $section-background;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        transition: $main-transition;
+        &:hover {
+          background-color: #fafafa;
+          color: $main-color;
+        }
+        > span {
+          color: #777
+        }
+      }
+    }
+  }
+  .preview {
+    @include flex (space-between, start);
+    flex-direction: column;
+    background-color: #e2e2e2;
+    padding: 10px;
+    
+    > {
+      img {
+        max-width: 100%;
+        border-radius: 5px;
+        margin: auto;
+      }
+      span {
+        display: block;
+        background-color: white;
+        width: 100%;
+        padding: 20px;
+        margin-top: 10px;
+      }
+    }
+  
+}
+/* End TOP VIDEOS */

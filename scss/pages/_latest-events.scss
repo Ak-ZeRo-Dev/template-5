@@ -1,0 +1,134 @@
+// Import Variables
+@use "../layout/variables" as *;
+// Import Mixins
+@use "../helpers/mixins" as *;
+
+
+/* Start LATEST EVENTS */
+.latest-events {
+  z-index: 1;
+  .container {
+    .le-container {
+      @include flex (space-between);
+      flex-wrap: wrap;
+      > img {
+        max-width: 450px;
+        @include breakPoint (gmd) {
+          display: none;
+        }
+      }
+      .le-data {
+        flex: 1;
+        text-align: center;
+        .time {
+          @include flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          .unit {
+            border: 1px solid #d4d4d4;
+            border-radius: 7px;
+            position: relative;
+            width: 75px;
+            transition: $main-transition;
+            &:hover {
+              border-color: $main-color;
+              > span {
+                border-color: $main-color;
+              }
+            }
+            > {
+              h2 {
+                color: $main-color;
+                @include flex;
+                flex-direction: column;
+                border: 1px ;
+                margin: 15px;
+                font-size: 2.5rem;
+                font-weight: 600;
+              }
+              span {
+                border-top: 1px solid #d4d4d4;
+                display: block;
+                width: 100%;
+                padding: 8px 10px;
+              }
+            }
+          }
+        }
+        .le-text {
+          > {
+            h2 {
+              font-size: 2rem;
+              margin: 35px 0 20px;
+              font-weight: 600;
+            }
+            p {
+              line-height: 1.7;
+              font-size: 1.3rem;
+              color: #777;
+            }
+          }
+        }
+      }
+    }
+    .le-sub {
+      background-color: #f6f5f5;
+      width: 600px;
+      margin: 20px auto;
+      padding: 30px 40px;
+      border-radius: 50px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      @include breakPoint (gmd) {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+      @include breakPoint (gsm) {
+        width: 100%;
+        padding:15px 20px;
+      }
+      > {
+        [name="your-email"] {
+          border: none;
+          padding: 20px;
+          border-radius: 50px;
+          flex: 1;
+          &::placeholder {
+            color: #777;
+            font-size: 1.1rem;
+            transition: $main-transition;
+          }
+          &:focus {
+            outline: none;
+            &::placeholder {
+              opacity: 0;
+            }
+          }
+          @include breakPoint (gmd) {
+            width: 100%;
+          }
+        }
+        [value="Subscribe"] {
+          color: white;
+          background-color: $main-color;
+          cursor: pointer;
+          border: none;
+          font-weight: bold;
+          border-radius: 50px;
+          width: fit-content;
+          padding: 20px;
+          transition: $main-transition;
+          &:hover {
+            background-color: $main-color-alt;
+          }
+          @include breakPoint (gmd) {
+            width: 70%;
+          }
+        }
+      }
+    }
+  }
+}
+/* End LATEST EVENTS */
